@@ -247,6 +247,8 @@ function brainfuck_main()
                     case ",":
                         echo "<br>This feature ( , ) is not yet enabled, thanks for playing.";
                         break;
+                        //should probably use session_start() to transfer the arrays and pointers over ???
+
                         $form = new RonForms(array(
                             'action' => '?action=input'
                         ));
