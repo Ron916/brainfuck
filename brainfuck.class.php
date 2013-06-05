@@ -9,13 +9,12 @@
 
 namespace Defdev;
 
-
 class BrainFuck {
 
     private $tape = '';
 
-    public function compute( $tape = '' ) {
-        $tape = ($tape=='' ? $this->tape : $tape);
+    public function compute($tape = '') {
+        $tape = ($tape == '' ? $this->tape : $tape);
         $memory = array();
         $mempointer = 0;
         $tapepointer = 0;
