@@ -13,9 +13,9 @@ namespace Defdev;
 
 //attempt to PSR-0 autoload even though there's only one class not included already :P
 //not working right now.. keeps passing in a wordpress autoload function... I'll fix it in the morning :P
-//spl_autoload_register(__NAMESPACE__ . '\\autoload');
+//spl_autoload_register('\Defdev\autoload');
 //function from FIG PSR-0.md
-function autoload($className)
+function asdfautoload($className)
 {
     $className = ltrim($className, '\\');
     $fileName = '';
@@ -33,7 +33,6 @@ function autoload($className)
 include 'ronforms.class.php';
 include 'brainfuck.class.php';
 include 'functions.php';
-
 
 if (defined('DB_NAME')) { //if installed in wordpress
 
@@ -54,8 +53,8 @@ if (defined('DB_NAME')) { //if installed in wordpress
     {
         //nothing to do here yet, just a placeholder for possible future use??
     }
-
     add_shortcode('brainfuck', '\Defdev\brainfuck_main');
+
 } elseif (defined('INDEX_FOWRARD')) {
     brainfuck_main();
 } else {

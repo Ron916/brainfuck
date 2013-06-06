@@ -9,11 +9,13 @@
 
 namespace Defdev;
 
-class BrainFuck {
+class BrainFuck
+{
 
     private $tape = '';
 
-    public function compute($tape = '') {
+    public function compute($tape = '')
+    {
         $tape = ($tape == '' ? $this->tape : $tape);
         $memory = array();
         $mempointer = 0;
@@ -85,7 +87,7 @@ class BrainFuck {
                     return;
                     break;
                 case ".":
-                    $output .= htmlspecialchars(chr($memory[$mempointer]));
+                    $output .= chr($memory[$mempointer]);
                     break;
                 default:
                     break;
@@ -109,6 +111,7 @@ class BrainFuck {
             $inputcount = substr($inputcount, 1);
         }
         //need to work with ascii 32 to 255, anything outside this range is rejected by brainfuck
+        //create brainfuck initialization string (first part of string) that sets each memory cell to start point
         $output = "+++++ +++++"; //initialize counter (cell #0) to 10
         $output .= "["; //use loop to set the next cells to 10/30/60/90/120/150/170/200/230
         //memory cell 1
@@ -151,14 +154,13 @@ class BrainFuck {
         }
         $output .= "-"; //decrement counter (cell #0)
         $output .= "]";
+
+        //create program string from input
         $cellpointer = 0;
-        $prevbyte = '';
         while (strlen($input) > 0) {
             $byte = ord(substr($input, 0, 1));
             if ($byte > 255 || $byte < 32) {
                 echo "Your string is not valid.";
-                getForm();
-                getEncodeForm();
                 return;
             }
             //get cell # who's data is closest to the byte we're trying to print
@@ -189,7 +191,6 @@ class BrainFuck {
             //print byte
             $output .= ".";
             //set up next byte
-            $prevbyte = $byte;
             $input = substr($input, 1);
         }
         return str_replace(" ", "", $output);

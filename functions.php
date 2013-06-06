@@ -8,6 +8,8 @@
  */
 
 
+namespace Defdev;
+
 /**
  * Main Plugin Control Function
  */
@@ -17,10 +19,10 @@ function brainfuck_main()
     if (isset($_GET['action'])) {
 
         if ($_GET['action'] == 'encode') {
-            $output = $brainfuck->encode(htmlspecialchars($_POST['encode']));
-            echo "Your Program Code Is:<br> " . htmlspecialchars($output);
-            echo "<br><br>Here ya go, give it a try:<br>";
 
+            $output = $brainfuck->encode($_POST['encode']);
+            echo "<h3>You Entered In:</h3>" . htmlspecialchars($_POST['encode']) . "<br>";
+            echo "<h3>Your Program Code Is:</h3>" . htmlspecialchars($output) . "<br>";
         } else {
 
             if ($_GET['action'] == 'input') {
@@ -32,7 +34,7 @@ function brainfuck_main()
                 $memory[$mempointer] = ord($input);
             } else {
                 $program = $_POST['program'];
-                echo "<h3>Your Program:</h3>" . htmlspecialchars($program) . "<br>";
+                echo "<h3>Your Program:</h3>" . htmlspecialchars($program) . "<br><br>";
                 //turn program into an array for ez pointer usage
                 for ($i = 0; strlen($program) > 0; $i++) {
                     $tape[$i] = substr($program, 0, 1);
@@ -41,8 +43,7 @@ function brainfuck_main()
                 //mark ending
                 $tape[$i] = "END";
             }
-            echo $brainfuck->compute($tape);
-
+            echo "<h3>Your Program Output:</h3><br>" . htmlspecialchars($brainfuck->compute($tape)) . "<br><br>";
         }
     }
     getForm();
