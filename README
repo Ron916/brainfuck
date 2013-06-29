@@ -1,3 +1,13 @@
-This file was created by JetBrains PhpStorm 6.0.2 for binding GitHub repository
+WP Brainfuck Machine
 
-Note:  I tried to make this work as a standalone program as well so you dont need to install it into wordpress to play with it.
+http://en.wikipedia.org/wiki/Brainfuck
+
+"The brainfuck programming language is an esoteric programming language noted for its extreme minimalism. 
+It is a Turing tarpit, designed to challenge and amuse programmers, and was not made to be suitable for practical use.
+It was created in 1993 by Urban Müller."
+
+Now you can add a brainfuck machine to your own Wordpress Install via a PlugIn!
+
+Why would you want to do such a thing?  Who knows.
+
+Also works as a standalone program via index.php.
