@@ -12,7 +12,7 @@ License: GPL2
 namespace Defdev;
 
 //attempt to PSR-0 autoload even though there's only one class not included already :P
-//not working right now.. keeps passing in a wordpress autoload function... I'll fix it in the morning :P
+//not working right now.. keeps passing in a wordpress autoload function... Needs work.
 //spl_autoload_register('\Defdev\autoload');
 //function from FIG PSR-0.md
 function asdfautoload($className)
@@ -29,7 +29,7 @@ function asdfautoload($className)
 
     require $fileName;
 }
-
+//since the above doesn't work yet.
 include 'ronforms.class.php';
 include 'brainfuck.class.php';
 include 'functions.php';
