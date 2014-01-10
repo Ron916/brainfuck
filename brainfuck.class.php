@@ -64,7 +64,7 @@ class BrainFuck
                     if ($memory[$mempointer] == 0) {
                         $closingtag = false;
                         $nested = 0;
-                        while ($closingtag = false) {
+                        while ($closingtag == false) {
                             $tapepointer++;
                             switch ($tape[$tapepointer]) {
                                 case "[":
