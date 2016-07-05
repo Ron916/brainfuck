@@ -1,0 +1,14 @@
+{
+    "name": "ron916/brainfuck",
+    "description": "Brainfuck Machine",
+    "type": "project",
+    "license": "Private",
+    "authors": [
+        {
+            "name": "Ron Vocal",
+            "email": "ron@definitedev.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
