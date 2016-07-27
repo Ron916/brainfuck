@@ -1,0 +1,8 @@
+/* By importing Bootstrap via Sass, we can extend it's classes into our own. */
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.welcome {
+  @extend .text-danger;
+  @extend .row;
+  @extend .text-center;
+}
