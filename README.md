@@ -2,10 +2,10 @@
 
 This repo is a work-in-progress.
 
+Apologies for the language however this is a purely academic endeavor, intended as an exercise in web application architecture.
+
 It is a Brainfuck Machine I created, wrapped in an over-engineered
 web application.
-
-Apologies for the language however this is a purely academic endeavor, intended to display my current view of web application architecture.
 
 Brainfuck:
 https://en.wikipedia.org/wiki/Brainfuck
