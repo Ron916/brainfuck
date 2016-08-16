@@ -29,7 +29,6 @@ abstract class BaseControllerAbstract
     public function __construct(App $app, RequestInterface $request, ResponseInterface $response)
     {
         $this->app = $app;
-        $this->view = $app->getContainer()['view'];
         $this->request = $request;
         $this->response = $response;
     }
@@ -37,7 +36,7 @@ abstract class BaseControllerAbstract
     /**
      * @return App
      */
-    public function getApp(): App
+    protected function getApp(): App
     {
         return $this->app;
     }
@@ -45,7 +44,7 @@ abstract class BaseControllerAbstract
     /**
      * @return RequestInterface
      */
-    public function getRequest(): RequestInterface
+    protected function getRequest(): RequestInterface
     {
         return $this->request;
     }
@@ -53,7 +52,7 @@ abstract class BaseControllerAbstract
     /**
      * @return ResponseInterface
      */
-    public function getResponse(): ResponseInterface
+    protected function getResponse(): ResponseInterface
     {
         return $this->response;
     }

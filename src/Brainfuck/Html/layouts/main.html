@@ -5,20 +5,25 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Brainfuck</title>
     <link rel="stylesheet" href="assets/main.css">
+    <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
     {% block header %}{% endblock %}
 </head>
 <body>
 
     <div class="container">
-        {% block body %}{% endblock %}
+        {% autoescape true %}
+            {% block body %}{% endblock %}
+        {% endautoescape %}
     </div>
 
-    <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="assets/bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
     <script src="assets/bower_components/vue/dist/vue.js"></script>
     <script src="assets/main.js"></script>
+    <script>
+        Vue.config.delimiters = ['@{', '}'];
+    </script>
     {% block footer %}{% endblock %}
 </body>
 </html>

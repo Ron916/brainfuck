@@ -1,8 +1,33 @@
 /* By importing Bootstrap via Sass, we can extend it's classes into our own. */
 @import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
+body {
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
 .welcome {
   @extend .text-danger;
-  @extend .row;
   @extend .text-center;
+}
+
+.title-encode {
+  @extend .text-center;
+}
+
+.title-decode {
+  @extend .text-center;
+}
+
+.btn-encode {
+  @extend .btn;
+  @extend .btn-primary;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+
+.btn-decode {
+  @extend .btn;
+  @extend .btn-primary;
+  margin-top:5px;
+  margin-bottom:5px;
 }

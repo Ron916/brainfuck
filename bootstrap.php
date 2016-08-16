@@ -6,12 +6,16 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$app = new \Slim\App;
+$config = [
+    'settings' => [
+        'displayErrorDetails' => true,
+    ],
+];
 
-// Get container
+$app = new \Slim\App($config);
+
 $container = $app->getContainer();
 
-// Register component on container
 $container['view'] = function ($container) {
     $view = new \Slim\Views\Twig(projectroot() . '/src/Brainfuck/Html', [
         'cache' => false,
@@ -20,7 +24,6 @@ $container['view'] = function ($container) {
         $container['router'],
         $container['request']->getUri()
     ));
-
     return $view;
 };
 

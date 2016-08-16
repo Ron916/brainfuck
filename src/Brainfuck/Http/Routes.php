@@ -27,18 +27,21 @@ class Routes
     public function set()
     {
         $app = $this->getApp();
+
         $this->app->get('/brainfuck', function(Request $request, Response $response) use($app) {
             $controller = new Controller($app, $request, $response);
             return $controller->start();
         });
-        $this->app->get('/brainfuck/encode', function(Request $request, Response $response) use($app) {
+
+        $this->app->post('/brainfuck/encode', function(Request $request, Response $response) use($app) {
             $controller = new Controller($app, $request, $response);
             return $controller->encode();
-        });
-        $this->app->any('/brainfuck/decode', function(Request $request, Response $response) use($app) {
+        })->setName('encode');
+
+        $this->app->post('/brainfuck/decode', function(Request $request, Response $response) use($app) {
             $controller = new Controller($app, $request, $response);
             return $controller->decode();
-        });
+        })->setName('decode');
     }
 
     /**

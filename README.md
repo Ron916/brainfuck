@@ -1,12 +1,15 @@
 #Hello.
 
-Frontend Details:
-Bower package manager
-JQuery
-Bootstrap
-Sass
+####Frontend Details:
+* Bower package manager
+* JQuery
+* Bootstrap
+* Sass
 
-Backend Details:
-Composer package manager
-Slim Framework used for Routing
-PHPUnit
+####Backend Details:
+* Composer package manager
+* Slim Framework used for Routing
+* PHPUnit
+
+####What does it do?
+Nothing important.

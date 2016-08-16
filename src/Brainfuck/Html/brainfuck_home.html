@@ -1,7 +1,97 @@
 {% extends "layouts/main.html" %}
 
 {% block body %}
-    <div class="welcome">
-        <h2>Brainfuck 5000</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="welcome">
+                <h2>Brainfuck</h2>
+            </div>
+        </div>
     </div>
+    <div class="row">
+        <div class="col-md-6" id="brainfuck-encoder">
+            <div class="col-md-12">
+                <div class="title-encode">
+                    <h2>Encoder</h2>
+                    <textarea v-model="input" class="form-control" placeholder="Enter text to be encoded"></textarea>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button v-on:click="encode" class="btn-encode">Encode</button>
+            </div>
+            <div class="col-md-12" v-if="result">
+                <span>
+                    @{ result }
+                </span>
+            </div>
+        </div>
+        <div class="col-md-6" id="brainfuck-decoder">
+            <div class="col-md-12">
+                <div class="title-decode">
+                    <h2>Decoder</h2>
+                    <textarea v-model="input" class="form-control" placeholder="Enter string to be decoded"></textarea>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button v-on:click="decode" class="btn-decode">Decode</button>
+            </div>
+            <div class="col-md-12">
+                <span>
+                    @{ result }
+                </span>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+<script>
+    $(function(){
+        var Decoder = new Vue({
+            el: '#brainfuck-decoder',
+            data: {
+                input: '',
+                result: ''
+            },
+            methods: {
+                decode: function(){
+                    if(!this.input) {
+                        return;
+                    }
+                    $.ajax({
+                        url: "{{ app.getContainer().get('router').pathFor('decode') }}",
+                        type: "POST",
+                        data: {
+                            input: this.input
+                        }
+                    }).done(function(response){
+                        console.log(response);
+                    });
+                }
+            }
+        });
+        var Encoder = new Vue({
+            el: '#brainfuck-encoder',
+            data: {
+                input: '',
+                result: ''
+            },
+            methods: {
+                encode: function(){
+                    if(!this.input) {
+                        return;
+                    }
+                    $.ajax({
+                        url: "{{ app.getContainer().get('router').pathFor('encode') }}",
+                        type: "POST",
+                        data: {
+                            input: this.input
+                        }
+                    }).done(function(response){
+                        console.log(response);
+                    });
+                }
+            }
+        });
+    });
+</script>
 {% endblock %}

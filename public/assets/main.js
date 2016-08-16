@@ -1,1 +1,7 @@
-console.log('hi');
+var Brainfuck = {
+    init: function(){}
+};
+
+$(function(){
+    Brainfuck.init();
+});

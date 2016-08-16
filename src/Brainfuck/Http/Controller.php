@@ -12,20 +12,23 @@ class Controller extends BaseControllerAbstract
     public function start()
     {
         $response = $this->getResponse();
-        return $this->view->render($response, 'brainfuck_home.html', [
-            //'var' => 'value',
+        $view = $this->getApp()->getContainer()['view'];
+        $view->render($response, 'brainfuck_home.html', [
+            'app' => $this->getApp()
         ]);
     }
 
     public function encode()
     {
         $input = $this->getRequest()->getBody()->getContents();
-        dd($input);
-        return $this->getResponse();
+        $response = $this->getResponse();
+        return $response;
     }
 
     public function decode()
     {
-
+        $input = $this->getRequest()->getBody()->getContents();
+        $response = $this->getResponse();
+        return $response;
     }
 }
